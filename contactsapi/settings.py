@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'authentication',
     'rest_framework',
     'contacts',
+    'drf_yasg',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +44,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+SWAGGER_SETTINGS={
+    'SECURITY_DEFINITIONS':{
+     "Auth Token eh [Bearer] (JWT)":{
+     "type":"apiKey",
+     "name":"Authorization",
+     "in":"header"
+     }
+    }
+}
 REST_FRAMEWORK={
     'DEFAULT_AUTHENTICATION_CLASSES':(
         'authentication.backends.JWTAuthentication',)

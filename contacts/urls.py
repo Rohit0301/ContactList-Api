@@ -1,7 +1,11 @@
 from django.urls import path
 from .views import ContactListView,ContactDetailView
+from django.urls import path,include
+
+
+ 
 
 urlpatterns=[
- path('',ContactListView.as_view())
+ path('',ContactListView.as_view()),
  path('<int:id>/',ContactDetailView.as_view())
 ]
