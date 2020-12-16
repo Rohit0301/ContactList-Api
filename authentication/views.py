@@ -1,8 +1,17 @@
 from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
 from .serializers import UserSerializer
+from rest_framework.response import Response
+from rest_framework import status
 # Create your views here.
 
 class RegisterView(GenericAPIView):
     def post(self,request):
-        pass
+        serializer=UserSerializer(data=request.data)
+
+        if serializer.is_Vald():
+            serializer.save()
+            return Response(serializer.data,status=status.201_CREADTED)
+
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
