@@ -26,23 +26,12 @@ class LoginView(GenericAPIView):
         data=request.data
         username=data.get('username','')
         password=data.get('password','')
-        if len(username)>3:
+        if len(username)>3 and (username.islower()) and (username.isupper()):
             pass
-        if (username.islower()):
-            pass         
- 
-        # counting uppercase alphabets
-        if (username.isupper()):
-            pass          
- 
-        if len(password)>8:
+        
+        if len(password)>8 and (password.islower()) and (password.isupper()):
             pass
-        if (password.islower()):
-            pass         
- 
-        # counting uppercase alphabets
-        if (password.isupper()):
-            pass          
+                  
  
         # counting digits
         if (password.isdigit()):
