@@ -31,7 +31,6 @@ class LoginView(GenericAPIView):
         
         if len(password)>8 and (password.islower()) and (password.isupper()):
             pass
-                  
  
         # counting digits
         if (password.isdigit()):
