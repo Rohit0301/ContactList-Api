@@ -26,6 +26,16 @@ class LoginView(GenericAPIView):
         data=request.data
         username=data.get('username','')
         password=data.get('password','')
+        if len(username)>3 and (username.islower()) and (username.isupper()):
+            pass
+        
+        if len(password)>8 and (password.islower()) and (password.isupper()):
+            pass
+                  
+ 
+        # counting digits
+        if (password.isdigit()):
+            pass       
         user= auth.authenticate(username=username,password=password)
         print(settings.JWT_SECRET_KEY)
         if user:
